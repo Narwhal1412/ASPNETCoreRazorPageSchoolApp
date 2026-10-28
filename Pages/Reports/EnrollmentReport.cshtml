@@ -1,0 +1,26 @@
+@page
+@model SchoolAppCore.Pages.Reports.EnrollmentReportModel
+@{
+    ViewData["Title"] = "Enrollment Report";
+}
+
+<h1>Enrollment Report</h1>
+
+<form method="post" target="_blank">
+    <div class="mb-3">
+        <label asp-for="DepartmentID" class="form-label">Department</label>
+        <select asp-for="DepartmentID" asp-items="Model.DepartmentOptions" class="form-select">
+            <option value="">All departments</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Format" class="form-label">Format</label>
+        <select asp-for="Format" class="form-select">
+            <option value="HTML5">HTML (view in browser)</option>
+            <option value="EXCELOPENXML">Excel (.xlsx)</option>
+            <option value="WORDOPENXML">Word (.docx)</option>
+            <option value="PDF">PDF (Windows only)</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Generate report</button>
+</form>
